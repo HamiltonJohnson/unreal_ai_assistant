@@ -6,13 +6,7 @@
   "Description": "A plugin to enable LLM's to read blueprints and explain event graphs, identify issues, and automatically fix them.",
   "Category": "Scripting",
   "CreatedBy": "Hamleet",
-  "Modules": [
-    {
-      "Name": "UnrealAIAssist",
-      "Type": "Editor",
-      "LoadingPhase": "Default"
-    }
-  ],
+  "Modules": [],
   "Plugins": [
     {
       "Name": "EditorScriptingUtilities",
