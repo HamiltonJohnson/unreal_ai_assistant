@@ -1,0 +1,66 @@
+# ✅ Unreal Engine AI Assistant — TODOs & Roadmap
+
+This document outlines current development tasks and future milestones for the Unreal Engine AI Assistant plugin.
+
+---
+
+## 🔧 Immediate TODOs
+
+### 1. Create C++ Wrapper for `KismetEditorUtilities::GetAllGraphs()`
+- [ ] Add a C++ module to the plugin (`UnrealAIAssist`)
+- [ ] Create a utility class (e.g. `UBlueprintGraphUtils`) with:
+  ```cpp
+  UFUNCTION(BlueprintCallable, Category="LLM")
+  static TArray<UEdGraph*> GetAllGraphs(UBlueprint* Blueprint);
+  ```
+- [ ] Expose the method to Python using `UPythonModule` or `PyBind`
+- [ ] Recompile plugin with `WITH_EDITOR=1` and confirm Python access
+
+### 2. Verify Python Exposure
+- [ ] Confirm `KismetEditorUtilities` is available in Python console
+- [ ] Test graph extraction on Actor Blueprints and Editor Utility Widgets
+
+### 3. Add Error Handling and Type Guards
+- [ ] Gracefully skip unsupported asset types (e.g. Function Libraries, Data Assets)
+- [ ] Add fallback for Blueprints with no Event Graph
+- [ ] Log asset type and graph access failures for debugging
+
+---
+
+## 🚀 Future Milestones
+
+### 🧠 LLM Integration
+- [ ] Add support for Gemini or other OpenRouter models
+- [ ] Let users choose model via dropdown or config file
+- [ ] Format responses in Markdown or rich text for better readability
+
+### 🛠️ Blueprint Editing
+- [ ] Parse LLM suggestions into actionable node edits
+- [ ] Add “Fix It” button to apply changes directly in the graph
+- [ ] Support auto-commenting and node grouping based on logic clusters
+
+### 📦 UI/UX Improvements
+- [ ] Build a dockable Editor Utility Widget for prompt input and response display
+- [ ] Add syntax highlighting and collapsible sections for large graphs
+- [ ] Support multi-Blueprint batch analysis
+
+### 📊 Developer Feedback Loop
+- [ ] Log LLM suggestions and user actions for improvement tracking
+- [ ] Add thumbs-up/down feedback on responses
+- [ ] Enable prompt history and undo/redo for applied fixes
+
+### 🌐 Sharing & Adoption
+- [ ] Publish plugin on GitHub with demo video and screenshots
+- [ ] Add example Blueprints for testing and onboarding
+- [ ] Create a tutorial series or documentation site
+
+---
+
+## 🧪 Debug Tips
+
+- Use `get_editor_property("event_graph")` for standard Blueprints
+- Use `get_editor_property("uber_graph_pages")` for Editor Utility Widgets
+- Print `dir(bp)` to inspect available properties
+- Confirm `KismetEditorUtilities` is exposed via Python after plugin rebuild
+
+---
