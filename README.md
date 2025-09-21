@@ -1,10 +1,5 @@
 # Unreal Engine AI Assistant
 
-**Version:** 1.0  
-**Author:** Hamleet  
-**Category:** Scripting  
-**Plugin Type:** Editor Plugin
-
 ## Overview
 
 Unreal Engine AI Assistant is a Python-powered plugin that enables large language models (LLMs) to analyze Blueprint graphs directly inside the Unreal Editor. It extracts logic from selected Blueprints, formats it as structured JSON, and sends it to an LLM (Claude 3 Haiku via OpenRouter) for explanation, improvement suggestions, and automatic fix recommendations.
